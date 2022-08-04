@@ -10,6 +10,7 @@ class DrawInformation:
     BACKGROUND_COLOR = WHITE
     
     SIDE_PAD = 100
+    TOP_PAD = 150
     
     def __init__(self, width, height, lst):
         self.width = width
@@ -25,3 +26,4 @@ class DrawInformation:
         self.max_val = max(lst)
         
         self.block_width = round((self.width - self.SIDE_PAD) / len(lst))
+        self.blobk_height = round((self.height - self.TOP_PAD) / (self.max_val - self.min))
