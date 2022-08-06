@@ -1,4 +1,5 @@
 import random, pygame
+from pickle import TRUE, FALSE
 pygame.init()
 
 class DrawInformation:
@@ -26,4 +27,37 @@ class DrawInformation:
         self.max_val = max(lst)
         
         self.block_width = round((self.width - self.SIDE_PAD) / len(lst))
-        self.blobk_height = round((self.height - self.TOP_PAD) / (self.max_val - self.min))
+        self.block_height = round((self.height - self.TOP_PAD) / (self.max_val - self.min_val))
+        self.start_x = self.SIDE_PAD // 2
+
+def draw(draw_info):
+    draw_info.window.fill(draw_info.BACKGROUND_COLOR)
+    pygame.display.update()
+
+def draw_list(draw_info):
+    pass
+
+def main():
+    run = True
+    clock = pygame.time.Clock()
+    
+    n = 50
+    min_val, max_val = 0, 100
+    lst = random.sample(range(min_val, max_val), n)
+    w, h = 800, 600
+    
+    draw_info = DrawInformation(w, h, lst)
+    
+    while run:
+        clock.tick(60)
+        
+        draw(draw_info)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+    
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
