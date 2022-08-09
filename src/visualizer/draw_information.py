@@ -8,7 +8,13 @@ class DrawInformation:
     GREEN = 0, 255, 0
     RED = 255, 0, 0
     GREY = 128, 128, 128
-    BACKGROUND_COLOR = WHITE
+    PINK = 255, 182, 193
+    SEAGREEN = 32, 178, 170
+    LIGHTGREY = 220, 220, 220,
+    CORAL = 240, 128, 128
+    MINT = 189, 252, 201
+    ROYALBLUE = 39, 64, 139
+    BACKGROUND_COLOR = ROYALBLUE
     
     GRADIENTS = [
         (128, 128, 128),
@@ -17,7 +23,7 @@ class DrawInformation:
     ]
     
     # fonts for use throughout
-    FONT = pygame.font.SysFont('calibri', 30)
+    FONT = pygame.font.SysFont('calibri', 25)
     LARGE_FONT = pygame.font.SysFont('calibri', 40)
     # padding top and sides of window
     SIDE_PAD = 100
@@ -30,7 +36,7 @@ class DrawInformation:
         
         # actually create window using pygame
         self.window = pygame.display.set_mode((width, height))
-        pygame.display.set_caption('Sorting Algorithm Visualization')
+        pygame.display.set_caption('Sorting Algorithm Visualizer')
         self.set_list(lst)
     
     # helper method to initialize list and its variables
@@ -52,18 +58,17 @@ def draw(draw_info, algo_name, ascending, delay=10):
     draw_info.window.fill(draw_info.BACKGROUND_COLOR)
     
     # initialize and draw titles
-    title = draw_info.LARGE_FONT.render(f"{algo_name} - {'Ascending' if ascending else 'Descending'}", 1, draw_info.GREY)
+    title = draw_info.LARGE_FONT.render(f"{algo_name} - {'Ascending' if ascending else 'Descending'}", 1, draw_info.CORAL)
     draw_info.window.blit(title, (draw_info.width/2 - title.get_width()/2, 5))
-
     
     # initialize controls
     controls = draw_info.FONT.render("R - Reset | SPACE - Start | A - Ascending | D - Descending",
-                                     1, draw_info.BLACK)
+                                     1, draw_info.MINT)
     # centralize controls text
-    draw_info.window.blit(controls, (draw_info.width/2 - controls.get_width()/2, 45))
+    draw_info.window.blit(controls, (draw_info.width/2 - controls.get_width()/2, 50))
     
-    sorting = draw_info.FONT.render("I - Insertion Sort | B - Bubble Sort", 1, draw_info.BLACK)
-    draw_info.window.blit(sorting, (draw_info.width/2 - sorting.get_width()/2, 75))
+    sorting = draw_info.FONT.render("I - Insertion | B - Bubble | Q - Quick | H - Heap | Selection", 1, draw_info.MINT)
+    draw_info.window.blit(sorting, (draw_info.width/2 - sorting.get_width()/2, 80))
     
     draw_list(draw_info)
     # display changes

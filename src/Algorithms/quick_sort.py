@@ -1,4 +1,4 @@
-from visualizer import draw_list
+from Visualizer.draw_information import draw_list
 import random
 
 def quick_sort(draw_info, ascending=True, delay=10):
@@ -12,17 +12,17 @@ def quick_sort(draw_info, ascending=True, delay=10):
             rand = random.randint(l, r)
             # swap random pivot
             lst[r], lst[rand] = lst[rand], lst[r]
-            draw_list(draw_info, {r: draw_info.RED, rand: draw_info.GREEN}, True, delay)
+            draw_list(draw_info, {r: draw_info.SEAGREEN, rand: draw_info.PINK}, True, delay)
             
             lo = l
             for i in range(l, r):
-                if lst[i] <= lst[r]:
+                if (lst[i] <= lst[r] and ascending) or (lst[i] >= lst[r] and not ascending):
                     lst[i], lst[lo] = lst[lo], lst[i]
                     lo += 1
-                    draw_list(draw_info, {i: draw_info.RED, lo: draw_info.GREEN}, True, delay)
+                    draw_list(draw_info, {i: draw_info.SEAGREEN, lo: draw_info.PINK}, True, delay)
                     
             lst[lo], lst[r] = lst[r], lst[lo]
-            draw_list(draw_info, {lo: draw_info.RED, r: draw_info.GREEN}, True, delay)
+            draw_list(draw_info, {lo: draw_info.SEAGREEN, r: draw_info.PINK}, True, delay)
             
             return lo
         

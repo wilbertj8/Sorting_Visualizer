@@ -2,7 +2,9 @@ import pygame, random
 from Algorithms.bubble_sort import bubble_sort
 from Algorithms.insertion_sort import insertion_sort
 from Algorithms.quick_sort import quick_sort
-from visualizer.draw_information import DrawInformation, draw
+from Algorithms.heap_sort import heap_sort
+from Algorithms.selection_sort import selection_sort
+from Visualizer.draw_information import DrawInformation, draw
 
 # implement game
 def main():
@@ -40,7 +42,7 @@ def main():
             elif event.type != pygame.KEYDOWN:
                 continue
                 
-            if not sorting:
+            if run and not sorting:
             
                 if event.key == pygame.K_r:
                     lst = random.sample(range(min_val, max_val), n)
@@ -67,6 +69,14 @@ def main():
                 elif event.key == pygame.K_q:
                     sorting_algorithm = quick_sort
                     sort_algo_name = "Quick Sort"
+                
+                elif event.key == pygame.K_h:
+                    sorting_algorithm = heap_sort
+                    sort_algo_name = "Heap Sort"
+                
+                elif event.key == pygame.K_s:
+                    sorting_algorithm = selection_sort
+                    sort_algo_name = "Selection Sort"
                 
     pygame.quit()
 

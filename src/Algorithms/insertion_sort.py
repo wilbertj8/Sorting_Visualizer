@@ -1,4 +1,4 @@
-from visualizer import draw_list
+from Visualizer.draw_information import draw_list
 
 # insertion_sort
 def insertion_sort(draw_info, ascending=True, delay=10):
@@ -17,6 +17,4 @@ def insertion_sort(draw_info, ascending=True, delay=10):
             lst[i] = lst[i-1]
             i -= 1
             lst[i] = current
-            draw_list(draw_info, {i: draw_info.RED, i-1: draw_info.GREEN}, True, delay)
-    
-    return lst
+            draw_list(draw_info, {i: draw_info.SEAGREEN, i-1: draw_info.PINK}, True, delay)
