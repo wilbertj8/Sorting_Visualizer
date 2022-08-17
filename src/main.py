@@ -4,6 +4,7 @@ from Algorithms.insertion_sort import insertion_sort
 from Algorithms.quick_sort import quick_sort
 from Algorithms.heap_sort import heap_sort
 from Algorithms.selection_sort import selection_sort
+from Algorithms.merge_sort import merge_sort
 from Visualizer.draw_information import DrawInformation, draw
 
 # implement game
@@ -19,7 +20,7 @@ def main():
     # initialize sorting data
     sorting = False
     ascending = True
-    delay = 10
+    delay = 50
     
     draw_info = DrawInformation(w, h, lst)
     
@@ -77,6 +78,10 @@ def main():
                 elif event.key == pygame.K_s:
                     sorting_algorithm = selection_sort
                     sort_algo_name = "Selection Sort"
+                
+                elif event.key == pygame.K_m:
+                    sorting_algorithm = merge_sort
+                    sort_algo_name = "Merge Sort"
                 
     pygame.quit()
 

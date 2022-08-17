@@ -23,8 +23,9 @@ class DrawInformation:
     ]
     
     # fonts for use throughout
-    FONT = pygame.font.SysFont('calibri', 25)
-    LARGE_FONT = pygame.font.SysFont('calibri', 40)
+    FONT = pygame.font.SysFont('calibri', 28)
+    SMALL_FONT = pygame.font.SysFont('calibri', 23)
+    LARGE_FONT = pygame.font.SysFont('calibri', 37)
     # padding top and sides of window
     SIDE_PAD = 100
     TOP_PAD = 150
@@ -59,15 +60,15 @@ def draw(draw_info, algo_name, ascending, delay=10):
     
     # initialize and draw titles
     title = draw_info.LARGE_FONT.render(f"{algo_name} - {'Ascending' if ascending else 'Descending'}", 1, draw_info.CORAL)
-    draw_info.window.blit(title, (draw_info.width/2 - title.get_width()/2, 5))
+    draw_info.window.blit(title, (draw_info.width/2 - title.get_width()/2, 7))
     
     # initialize controls
     controls = draw_info.FONT.render("R - Reset | SPACE - Start | A - Ascending | D - Descending",
                                      1, draw_info.MINT)
     # centralize controls text
-    draw_info.window.blit(controls, (draw_info.width/2 - controls.get_width()/2, 50))
+    draw_info.window.blit(controls, (draw_info.width/2 - controls.get_width()/2, 45))
     
-    sorting = draw_info.FONT.render("I - Insertion | B - Bubble | Q - Quick | H - Heap | Selection", 1, draw_info.MINT)
+    sorting = draw_info.SMALL_FONT.render("I - Insertion | B - Bubble | Q - Quick | H - Heap | M - Merge | S - Selection", 1, draw_info.MINT)
     draw_info.window.blit(sorting, (draw_info.width/2 - sorting.get_width()/2, 80))
     
     draw_list(draw_info)
